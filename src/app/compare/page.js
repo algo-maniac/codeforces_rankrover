@@ -324,6 +324,10 @@ export default function Explore() {
             loader == true ? "invisible" : "visible"
           } flex flex-col items-center`}
         >
+          <div className="text-2xl w-[50%] m-10">
+            Here we compare the contests common to all the users and show the
+            corresponding Rating, Rank and Performance Graph
+          </div>
           <div className="flex items-center flex-col justify-between m-10 w-full">
             <div className="w-full h-[400px] my-10 flex flex-col items-center">
               <div className="text-2xl">Rating Graph</div>
@@ -344,29 +348,28 @@ export default function Explore() {
               </div>
             </div>
           </div>
-          <div className={`grid grid-rows-4 grid-flow-col w-full`}>
-            <div
-              className={`grid grid-cols-${parseInt(
-                nameArray.length
-              )} w-[50%] mx-auto`}
-            >
+          <div className={`grid grid-rows-4 grid-flow-row w-full`}>
+            <div className="flex flex-row">
               {nameArray.map((name, index) => (
                 <div
                   key={index}
-                  className="border-2 border-slate-900 bg-slate-900 text-white text-center p-5"
+                  className={`border-2 border-slate-900 bg-slate-900 text-white text-center p-5 ${
+                    nameArray.length === 2 ? "w-[33%]" : "w-[25%]"
+                  }`}
                 >
                   {name}
                 </div>
               ))}
             </div>
             {stats.map((element) => (
-              <div
-                className={`grid grid-cols-${parseInt(
-                  nameArray.length
-                )} w-[50%] mx-auto`}
-              >
+              <div className="flex flex-row" key={element.name}>
                 {Object.entries(element).map(([key, value]) => (
-                  <div className="border-2 border-slate-900 text-center p-5">
+                  <div
+                    className={`border-2 border-slate-900 text-center p-5 ${
+                      nameArray.length === 2 ? "w-[33%]" : "w-[25%]"
+                    }`}
+                    key={key}
+                  >
                     {value}
                   </div>
                 ))}
