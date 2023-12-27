@@ -268,29 +268,29 @@ export default function Explore() {
   };
 
   return (
-    <div className="flex flex-col justify-start p-10">
+    <div className="flex flex-col justify-start p-4 pt-10 m-auto items-center">
       <div className="flex flex-col items-center w-[50%] mx-auto justify-between text-xl border-2 border-slate-900 p-7 rounded-xl">
-        <h1 className="text-3xl text-center border-2 border-slate-950 text-white rounded-lg bg-slate-950 px-5 py-2 mb-4">
+        <h1 className="sm:text-3xl text-xl text-center border-2 border-slate-950 text-white rounded-lg bg-slate-950 px-5 py-2 mb-4">
           Add a user
         </h1>
-        <div className="flex justify-center items-center m-4 mb-5">
-          <div className="w-[150px]">Username</div>
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center m-2 mb-5">
+          <div className="sm:w-[30%] w-[80%]">Username</div>
           <input
             type="text"
             placeholder="codeforces handle"
-            className="h-10 px-4 outline-none border-2 border-slate-900 rounded-xl mr-5 text-lg"
+            className="sm:w-[55%] w-[80%] h-10 px-4 outline-none border-2 border-slate-900 rounded-xl mr-5 text-lg"
             value={username}
             onChange={(e) => {
               setUsername(e.target.value);
             }}
           />
         </div>
-        <div className="flex justify-center items-center m-4 mb-5">
-          <div className="w-[150px]">Number of contests</div>
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center m-2 mb-5">
+          <div className="sm:w-[30%] w-[80%]">Contests</div>
           <input
             type="number"
             placeholder="Last N contests"
-            className="h-10 px-4 outline-none border-2 border-slate-900 rounded-xl mr-5 text-lg"
+            className="sm:w-[55%] w-[80%] h-10 px-4 outline-none border-2 border-slate-900 rounded-xl mr-5 text-lg"
             value={numContests}
             min="0"
             onChange={(e) => {
@@ -302,7 +302,7 @@ export default function Explore() {
           />
         </div>
         <button
-          className="h-10 px-5 py-2 box-content outline-none border-2 border-slate-900 rounded-xl mr-5 text-2xl bg-slate-950 text-white"
+          className="h-10 px-5 py-2 box-content outline-none border-2 border-slate-900 rounded-xl mr-5 sm:text-3xl text-xl bg-slate-950 text-white"
           onClick={submitHandler}
         >
           Analyze
@@ -312,7 +312,7 @@ export default function Explore() {
         <button
           disabled
           type="button"
-          className="text-white bg-slate-900 hover:bg-slate-900 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 dark:bg-slate-900 dark:hover:bg-slate-900 inline-flex items-center w-[10%] ml-[45%] mt-10"
+          className="text-white bg-slate-900 hover:bg-slate-900 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 dark:bg-slate-900 dark:hover:bg-slate-900 inline-flex items-center w-[150px] m-10 justify-center"
         >
           <svg
             aria-hidden="true"
@@ -337,7 +337,7 @@ export default function Explore() {
 
       {errorInFetch ? (
         <div
-          className={`flex flex-col my-10 justify-center md:flex-row text-3xl ${
+          className={`flex flex-col w-[100%] my-10 justify-center items-center text-center md:flex-row text-3xl ${
             loader == true ? "invisible" : "visible"
           }`}
         >
@@ -352,7 +352,7 @@ export default function Explore() {
           } flex flex-col items-center`}
         >
           <div
-            className={`flex flex-col my-10 justify-center items-center md:flex-row border-2 border-slate-900 mx-[23%] rounded-xl px-10 min-h-[400px] `}
+            className={`flex flex-col my-10 justify-center items-center w-[100%] md:w-[50%] md:flex-row border-2 border-slate-900 rounded-xl p-10 min-h-[400px] `}
           >
             <div className="flex justify-center mr-4 h-[300px] w-[50%]">
               <img src={userInfo.titlePhoto} />
@@ -376,12 +376,12 @@ export default function Explore() {
               </li>
             </ul>
           </div>
-          <div className="flex flex-row justify-between w-full">
-            <div className="w-[50%] h-[300px] flex justify-center flex-col items-center m-10">
+          <div className="flex flex-col justify-center items-center w-full">
+            <div className="w-[80%] h-[500px] flex justify-center flex-col items-center m-5">
               <h1>Rating Changes Graph</h1>
               <Chart dataset={finalRatingMap} common={lastNContests.length} />
             </div>
-            <div className="w-[50%] h-[300px] flex justify-center flex-col items-center m-10">
+            <div className="w-[80%] h-[500px] flex justify-center flex-col items-center m-5">
               <h1>Performance Graph</h1>
               <Chart
                 dataset={finalPerformanceMap}
@@ -389,23 +389,23 @@ export default function Explore() {
               />
             </div>
           </div>
-          <div className="flex flex-wrap w-full h-[200px] justify-around m-10">
-            <div className="border-2 border-slate-900 w-[30%] h-[50px] rounded-xl flex justify-center items-center m-4 bg-slate-900 text-white">
+          <div className="flex flex-wrap w-full h-[200px] justify-around mb-[150px] md:text-lg text-sm">
+            <div className="border-2 border-slate-900 w-[30%] h-[75px] rounded-xl flex justify-center items-center m-4 bg-slate-900 text-white p-3 py-10">
               Best Rank - {bestRank}
             </div>
-            <div className="border-2 border-slate-900 w-[30%] h-[50px] rounded-xl flex justify-center items-center m-4 bg-slate-900 text-white">
+            <div className="border-2 border-slate-900 w-[30%] h-[75px] rounded-xl flex justify-center items-center m-4 bg-slate-900 text-white p-3 py-10">
               Best Rating - {highestRating}
             </div>
-            <div className="border-2 border-slate-900 w-[30%] h-[50px] rounded-xl flex justify-center items-center m-4 bg-slate-900 text-white">
+            <div className="border-2 border-slate-900 w-[30%] h-[75px] rounded-xl flex justify-center items-center m-4 bg-slate-900 text-white p-3 py-10">
               Best Performance - {bestPerformance}
             </div>
-            <div className="border-2 border-slate-900 w-[30%] h-[50px] rounded-xl flex justify-center items-center m-4 bg-slate-900 text-white">
+            <div className="border-2 border-slate-900 w-[30%] h-[75px] rounded-xl flex justify-center items-center m-4 bg-slate-900 text-white p-3 py-10">
               Maximum Rating Increase - {maxRatingIncrease}
             </div>
-            <div className="border-2 border-slate-900 w-[30%] h-[50px] rounded-xl flex justify-center items-center m-4 bg-slate-900 text-white">
+            <div className="border-2 border-slate-900 w-[30%] h-[75px] rounded-xl flex justify-center items-center m-4 bg-slate-900 text-white p-3 py-10">
               Lowest Rating - {lowestRating}
             </div>
-            <div className="border-2 border-slate-900 w-[30%] h-[50px] rounded-xl flex justify-center items-center m-4 bg-slate-900 text-white">
+            <div className="border-2 border-slate-900 w-[30%] h-[75px] rounded-xl flex justify-center items-center m-4 bg-slate-900 text-white p-3 py-10">
               Total Rating Change - {Math.abs(totalRatingChange)}
               {totalRatingChange >= 0 ? (
                 <svg
@@ -442,8 +442,10 @@ export default function Explore() {
               )}
             </div>
           </div>
-          <div className={`flex flex-col border-2 border-slate-800 w-full`}>
-            <div className="grid grid-cols-6 w-full text-center text-xl">
+          <div
+            className={`flex flex-col border-2 border-slate-800 w-full text-sm md:text-lg`}
+          >
+            <div className="grid grid-cols-6 w-full text-center">
               <div className="border-2 border-slate-900 p-3 bg-slate-900 text-white">
                 Contest Name
               </div>
@@ -468,19 +470,19 @@ export default function Explore() {
                 className="flex flex-row w-full text-center"
                 key={contestItem.contestId}
               >
-                <div className="border-2 border-slate-900 p-2 flex items-center justify-center w-[16.667%] h-[125px]">
+                <div className="border-2 border-slate-900 p-2 flex items-center justify-center w-[16.667%] h-[150px]">
                   {contestItem.contestName}
                 </div>
-                <div className="border-2 border-slate-900 p-2 flex items-center justify-center w-[16.667%] h-[125px]">
+                <div className="border-2 border-slate-900 p-2 flex items-center justify-center w-[16.667%] h-[150px]">
                   {contestItem.rank}
                 </div>
-                <div className="border-2 border-slate-900 p-2 flex items-center justify-center w-[16.667%] h-[125px]">
+                <div className="border-2 border-slate-900 p-2 flex items-center justify-center w-[16.667%] h-[150px]">
                   {contestItem.oldRating}
                 </div>
-                <div className="border-2 border-slate-900 p-2 flex items-center justify-center w-[16.667%] h-[125px]">
+                <div className="border-2 border-slate-900 p-2 flex items-center justify-center w-[16.667%] h-[150px]">
                   {contestItem.newRating}
                 </div>
-                <div className="border-2 border-slate-900 p-2 flex items-center justify-center w-[16.667%] h-[125px]">
+                <div className="border-2 border-slate-900 p-2 flex items-center justify-center w-[16.667%] h-[150px]">
                   {contestItem.newRating - contestItem.oldRating >= 0 ? (
                     <svg
                       className="h-8 w-8 text-green-500 mr-2"
@@ -520,7 +522,7 @@ export default function Explore() {
 
                   {contestItem.newRating - contestItem.oldRating}
                 </div>
-                <div className="border-2 border-slate-900 p-2 flex items-center justify-center w-[16.667%] h-[125px]">
+                <div className="border-2 border-slate-900 p-2 flex items-center justify-center w-[16.667%] h-[150px]">
                   {contestItem.performance_rating}
                 </div>
               </div>

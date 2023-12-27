@@ -238,20 +238,23 @@ export default function Explore() {
   useEffect(() => {});
 
   return (
-    <div className="flex flex-col justify-start p-10">
+    <div className="flex flex-col justify-start p-4 pt-10 m-auto items-center">
       <div className="flex flex-col items-center w-[50%] mx-auto justify-between text-xl border-2 border-slate-900 p-7 rounded-xl">
-        <h1 className="text-3xl text-center border-2 border-slate-950 text-white rounded-lg bg-slate-950 px-5 py-2 mb-4">
+        <h1 className="sm:text-3xl text-xl text-center border-2 border-slate-950 text-white rounded-lg bg-slate-950 px-5 py-2 mb-4">
           Add a user
         </h1>
-        <div className="flex justify-center items-center m-4 mb-5">
+        <div className="flex justify-center items-center mb-5 m-auto">
           <div className="flex flex-col ">
             {username.map((user) => (
-              <div className="m-4 flex flex-row items-center" key={user.id}>
-                <div className="w-[150px]">Username {user.id}</div>
+              <div
+                className="m-2 mb-5 flex flex-col sm:flex-row sm:justify-between sm:items-center"
+                key={user.id}
+              >
+                <div className="sm:w-[30%] w-[80%]">Username {user.id}</div>
                 <input
                   type="text"
                   placeholder="codeforces handle"
-                  className="h-10 px-4 outline-none border-2 border-slate-900 rounded-xl mr-5 text-lg"
+                  className="sm:w-[55%] w-[80%] h-10 px-4 outline-none border-2 border-slate-900 rounded-xl mr-5 text-lg"
                   value={user.name}
                   onChange={(e) => {
                     setUsername((prev) =>
@@ -268,14 +271,14 @@ export default function Explore() {
           </div>
         </div>
         <button
-          className="h-5 m-4 p-3 pb-4 text-center box-content outline-none border-2 border-slate-900 rounded-xl text-lg bg-slate-950 text-white"
+          className="sm:h-5 h-10 m-4 p-3 pb-4 text-center box-content outline-none border-2 border-slate-900 rounded-xl text-lg bg-slate-950 text-white"
           onClick={addUser}
         >
           Add User
         </button>
 
         <button
-          className="h-10 ml-5 px-5 py-2 box-content outline-none border-2 border-slate-900 rounded-xl mr-5 text-2xl bg-slate-950 text-white"
+          className="h-10 ml-5 px-5 py-2 box-content outline-none border-2 border-slate-900 rounded-xl mr-5 sm:text-3xl text-xl bg-slate-950 text-white"
           onClick={submitHandler}
         >
           Analyze
@@ -285,7 +288,7 @@ export default function Explore() {
         <button
           disabled
           type="button"
-          className="text-white bg-slate-900 hover:bg-slate-900 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 dark:bg-slate-900 dark:hover:bg-slate-900 inline-flex items-center w-[10%] ml-[45%] mt-10"
+          className="text-white bg-slate-900 hover:bg-slate-900 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 dark:bg-slate-900 dark:hover:bg-slate-900 inline-flex items-center w-[150px] m-10 justify-center"
         >
           <svg
             aria-hidden="true"
@@ -329,7 +332,7 @@ export default function Explore() {
             corresponding Rating, Rank and Performance Graph
           </div>
           <div className="flex items-center flex-col justify-between m-10 w-full">
-            <div className="w-full h-[400px] my-10 flex flex-col items-center">
+            <div className="w-[80%] h-[500px] my-10 flex flex-col items-center">
               <div className="text-2xl">Rating Graph</div>
               <div className="w-full h-full flex items-center justify-center">
                 <Chart common={totalCommon} dataset={finalRatingMap} />
@@ -337,18 +340,20 @@ export default function Explore() {
             </div>
             <div className="w-full h-[400px] my-10 flex flex-col items-center">
               <div className="text-2xl">Rank Graph</div>
-              <div className="w-full h-full flex items-center justify-center">
+              <div className="w-[80%] h-[500px] flex items-center justify-center">
                 <Chart common={totalCommon} dataset={finalRankMap} />
               </div>
             </div>
             <div className="w-full h-[400px] my-10 flex flex-col items-center">
               <div className="text-2xl">Performance Graph</div>
-              <div className="w-full h-full flex items-center justify-center">
+              <div className="w-[80%] h-[500px] flex items-center justify-center">
                 <Chart common={totalCommon} dataset={finalPerformanceMap} />
               </div>
             </div>
           </div>
-          <div className={`grid grid-rows-4 grid-flow-row w-full`}>
+          <div
+            className={`grid grid-rows-4 grid-flow-row m-auto text-center w-[80%]`}
+          >
             <div className="flex flex-row">
               {nameArray.map((name, index) => (
                 <div

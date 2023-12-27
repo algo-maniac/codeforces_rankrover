@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <div className="flex justify-around items-center h-[500px]">
-        <div className="text-6xl w-[60%] m-auto tracking-wide">
+        <div className="lg:text-6xl md:text-5xl text-3xl w-[60%] m-auto tracking-wide">
           Explore your Codeforces account, compare with your friends and get
           exclusive insights
         </div>
